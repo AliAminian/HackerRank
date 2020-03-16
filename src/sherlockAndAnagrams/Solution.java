@@ -15,32 +15,32 @@ public class Solution {
 		Arrays.sort(sArray);
 		return new String(sArray);
 	}
+
 	// Complete the sherlockAndAnagrams function below.
 	static int sherlockAndAnagrams(String s) {
 		Map<String, Integer> patterns = new HashMap<>();
-        for (int i = 0 ; i <= s.length(); i++) {
-            for (int j = i; j <= s.length(); j++) {
-            	String subString = getStringKey(s.substring(i,j));
-            	System.out.println(subString);
-            	if (subString.length() > 0) {
-                Integer value = patterns.get(subString);
-                if (value == null) {
-                    patterns.put(subString, 1);
-                } else {
-                    patterns.put(subString, value+1);
-                }
-                }
-            }
-        }
-        int counter = 0;
-        
-        for (Map.Entry<String, Integer> ent: patterns.entrySet()) {
-            int count = ent.getValue();
-            if (count > 1) {
-                counter += (count * (count-1)/2);  
-            }
-        }
-        return counter;
+		for (int i = 0; i <= s.length(); i++) {
+			for (int j = i; j <= s.length(); j++) {
+				String subString = getStringKey(s.substring(i, j));
+				if (subString.length() > 0) {
+					Integer value = patterns.get(subString);
+					if (value == null) {
+						patterns.put(subString, 1);
+					} else {
+						patterns.put(subString, value + 1);
+					}
+				}
+			}
+		}
+		int counter = 0;
+
+		for (Map.Entry<String, Integer> ent : patterns.entrySet()) {
+			int count = ent.getValue();
+			if (count > 1) {
+				counter += (count * (count - 1) / 2);
+			}
+		}
+		return counter;
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
