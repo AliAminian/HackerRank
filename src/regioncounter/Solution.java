@@ -52,10 +52,14 @@ public class Solution {
 		
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
-				if (inside(i-1, j, m, n) && array[i][j] == array[i-1][j]) union(getIndex(i, j, n), getIndex(i-1, j, n));
-				if (inside(i, j-1, m, n) && array[i][j] == array[i][j-1]) union(getIndex(i, j, n), getIndex(i, j-1, n));
-				if (inside(i, j+1, m, n) && array[i][j] == array[i][j+1]) union(getIndex(i, j, n), getIndex(i, j+1, n));
-				if (inside(i+1, j, m, n) && array[i][j] == array[i+1][j]) union(getIndex(i, j, n), getIndex(i+1, j, n));
+				if (inside(i-1, j, m, n) && array[i][j] == array[i-1][j])
+					union(getIndex(i, j, n), getIndex(i-1, j, n));
+				if (inside(i, j-1, m, n) && array[i][j] == array[i][j-1])
+					union(getIndex(i, j, n), getIndex(i, j-1, n));
+				if (inside(i, j+1, m, n) && array[i][j] == array[i][j+1])
+					union(getIndex(i, j, n), getIndex(i, j+1, n));
+				if (inside(i+1, j, m, n) && array[i][j] == array[i+1][j])
+					union(getIndex(i, j, n), getIndex(i+1, j, n));
 			}
 		}
 		
